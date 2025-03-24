@@ -1,5 +1,4 @@
 [colors.bright]
-black = "0x808080"
 blue = "0x0066ff"
 cyan = "0x00ffff"
 green = "0x33ff00"
@@ -26,11 +25,31 @@ yellow = "0xfeff00"
 background = "0x000000"
 foreground = "0xffffff"
 
+[font]
+size = 12
+
 [[hints.enabled]]
 command = "xdg-open"
 post_processing = true
-regex = "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+ regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
 
 [hints.enabled.mouse]
 enabled = true
 mods = "Control"
+
+[keyboard]
+bindings = [
+{ key = "V", mods = "Command|Shift", action = "Paste"},
+{ key= "C", mods = "Command|Shift", action = "Copy"},
+{ key= "C", mods = "Command", chars = "\u0003" },
+{ key= "D", mods = "Command", chars = "\u0004" },
+{ key = "Left",  mods = "Alt",     chars = "\u001bB"   },
+{ key = "Right", mods = "Alt",     chars = "\u001bF"   },
+{ key = "R", mods = "Command", chars = "\u0012"  },
+]
+
+[terminal]
+
+[terminal.shell]
+program = "/bin/bash"
+args = ["--login"]
